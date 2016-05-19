@@ -32,6 +32,10 @@ angular.module('starter.services', [])
         put: function (contactId, data) {
             var url = restApiUrl.concat(endPoint).concat('/').concat(contactId);
             return $http.put(url, data);
+        },
+        delete: function (contactId) {
+            var url = restApiUrl.concat(endPoint).concat('/').concat(contactId);
+            return $http.delete(url);
         }
     };
 })

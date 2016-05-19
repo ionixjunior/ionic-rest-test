@@ -32,6 +32,14 @@ angular.module('starter.controllers', [])
             });
         }
     };
+
+    $scope.delete = function () {
+        if ($scope.contact._id !== undefined) {
+            ContactService.delete($scope.contact._id).then(function(response) {
+                $ionicHistory.goBack();
+            });
+        }
+    };
 })
 
 ;
