@@ -27,8 +27,11 @@ angular.module('starter.services', [])
         },
         post: function (data) {
             var url = restApiUrl.concat(endPoint);
-
-            $http.post(url, data);
+            return $http.post(url, data);
+        },
+        put: function (contactId, data) {
+            var url = restApiUrl.concat(endPoint).concat('/').concat(contactId);
+            return $http.put(url, data);
         }
     };
 })
