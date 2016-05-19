@@ -1,9 +1,9 @@
 <ion-view view-title="Contatos">
   <ion-content>
     <ion-list>
-      <ion-item>
-        <h2>Venkman</h2>
-        <p>Back off, man. I'm a scientist.</p>
+      <ion-item ng-repeat="contact in contacts">
+        <h2>{{ contact.first_name }}</h2>
+        <p>{{ contact.email }}</p>
       </ion-item>
     </ion-list>
   </ion-content>
