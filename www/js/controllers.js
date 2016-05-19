@@ -4,8 +4,8 @@ angular.module('starter.controllers', [])
     $scope.contacts = ContactService.all();
 })
 
-.controller('ContactDetailCtrl', function($scope) {
-
+.controller('ContactDetailCtrl', function($scope, $stateParams) {
+    
 })
 
 ;
