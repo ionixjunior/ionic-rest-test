@@ -1,13 +1,16 @@
 angular.module('starter.services', [])
 
-.factory('ContactService', function () {
+.factory('ContactService', function ($http) {
+    var restApiUrl = 'http://localhost:8100/api';
+    var endPoint = '/contacts';
+
     var contacts = [{
-        id: '1',
+        _id: '1',
         first_name: 'Ione',
         last_name: 'Souza Junior',
         email: 'junior@ionixjunior.com.br'
     }, {
-        id: '2', 
+        _id: '2',
         first_name: 'João',
         last_name: 'Silva',
         email: 'joaosilva@gmail.com'
@@ -15,7 +18,13 @@ angular.module('starter.services', [])
 
     return {
         all: function () {
-            return contacts;
+            var url = restApiUrl.concat(endPoint);
+            return $http.get(url);
+        },
+        post: function (data) {
+            var url = restApiUrl.concat(endPoint);
+
+            $http.post(url, data);
         }
     };
 })

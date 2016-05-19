@@ -1,7 +1,7 @@
 <ion-view view-title="Contatos">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="contact in contacts" ui-sref="contact-detail({contactId: contact.id})">
+      <ion-item ng-repeat="contact in contacts" ui-sref="contact-detail({contactId: contact._id})">
         <h2>{{ contact.first_name }}</h2>
         <p>{{ contact.email }}</p>
       </ion-item>

@@ -1,11 +1,13 @@
 angular.module('starter.controllers', [])
 
 .controller('ContactsCtrl', function($scope, ContactService) {
-    $scope.contacts = ContactService.all();
+    ContactService.all().then(function(response) {
+        $scope.contacts = response.data;
+    });
 })
 
 .controller('ContactDetailCtrl', function($scope, $stateParams) {
-    
+
 })
 
 ;
