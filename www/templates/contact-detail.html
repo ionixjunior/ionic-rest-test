@@ -1,10 +1,20 @@
 <ion-view view-title="Detalhes">
   <ion-content>
-    <ion-list>
-      <ion-item>
-        <h2>Venkman</h2>
-        <p>Back off, man. I'm a scientist.</p>
-      </ion-item>
-    </ion-list>
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Nome</span>
+        <input type="text" ng-model="contact.first_name">
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Sobrenome</span>
+        <input type="text" ng-model="contact.last_name">
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">E-mail</span>
+        <input type="email" ng-model="contact.email">
+      </label>
+    </div>
   </ion-content>
 </ion-view>

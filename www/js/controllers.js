@@ -6,8 +6,10 @@ angular.module('starter.controllers', [])
     });
 })
 
-.controller('ContactDetailCtrl', function($scope, $stateParams) {
-
+.controller('ContactDetailCtrl', function($scope, $stateParams, ContactService) {
+    ContactService.get($stateParams.contactId).then(function(response) {
+        $scope.contact = response.data;
+    });
 })
 
 ;
