@@ -1,6 +1,10 @@
 angular.module('starter.controllers', [])
 
-.controller('ContactsCtrl', function($scope, ContactService) {
+.controller('ContactsCtrl', function($scope, $state, ContactService) {
+    $scope.add = function () {
+        $state.go('contact-detail');
+    };
+
     $scope.$on('$ionicView.enter', function (event, data) {
         ContactService.all().then(function(response) {
             $scope.contacts = response.data;
@@ -9,14 +13,24 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ContactDetailCtrl', function($scope, $stateParams, $ionicHistory, ContactService) {
-    ContactService.get($stateParams.contactId).then(function(response) {
-        $scope.contact = response.data;
-    });
+    if ($stateParams.contactId !== '') {
+        ContactService.get($stateParams.contactId).then(function(response) {
+            $scope.contact = response.data;
+        });
+    } else {
+        $scope.contact = {};
+    }
 
     $scope.save = function () {
-        ContactService.put($scope.contact._id, $scope.contact).then(function(response) {
-            $ionicHistory.goBack();
-        });
+        if ($scope.contact._id === undefined) {
+          ContactService.post($scope.contact).then(function(response) {
+              $ionicHistory.goBack();
+          });
+        } else {
+            ContactService.put($scope.contact._id, $scope.contact).then(function(response) {
+                $ionicHistory.goBack();
+            });
+        }
     };
 })
 

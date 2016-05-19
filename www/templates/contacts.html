@@ -1,4 +1,10 @@
 <ion-view view-title="Contatos">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear button-positive" ng-click="add()">
+      Adicionar
+    </button>
+  </ion-nav-buttons>
+
   <ion-content>
     <ion-list>
       <ion-item ng-repeat="contact in contacts" ui-sref="contact-detail({contactId: contact._id})">
